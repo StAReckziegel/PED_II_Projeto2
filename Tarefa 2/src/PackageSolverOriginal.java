@@ -1,15 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-/**
- *
- * @author StAR
- */
-public class PackageSolver {
+public class PackageSolverOriginal
+{
     // contador de estados gerados
     public static int count = 0;
     
@@ -43,18 +33,17 @@ public class PackageSolver {
             solve(level - 1, new PackageState(state.toString() + "c")); 
         }
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    
+    public static void main(String[] args)
+    {
         // procura a melhor sequência com exatos 6 caracteres
         long start = System.currentTimeMillis();
-        solve(4, new PackageState(""));
+        solve(6, new PackageState(""));
         
         System.out.println();
         System.out.println("count: " + count);
         System.out.println("time : " + (System.currentTimeMillis() - start) / 1000.0 + " s");        
         System.out.println("best : " + best + " [" + best.evaluate() + "]");
     }
-    
 }
+
