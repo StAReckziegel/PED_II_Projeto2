@@ -4,9 +4,9 @@ public class PackageSolverOriginal
     public static int count = 0;
     
     // registra o melhor estado encontrado até agora
-    public static PackageState best = new PackageState("");
+    public static PackageStateOriginal best = new PackageStateOriginal("");
 
-    public static void solve(int level, PackageState state)
+    public static void solve(int level, PackageStateOriginal state)
     {
         if (level == 0) {
             // apenas serão gerados estados com 'level' caracteres
@@ -28,9 +28,9 @@ public class PackageSolverOriginal
         }
         else {
             // baseado no estado parcial atual, gera e testa diferentes variações
-            solve(level - 1, new PackageState(state.toString() + "a"));
-            solve(level - 1, new PackageState(state.toString() + "b"));
-            solve(level - 1, new PackageState(state.toString() + "c")); 
+            solve(level - 1, new PackageStateOriginal(state.toString() + "a"));
+            solve(level - 1, new PackageStateOriginal(state.toString() + "b"));
+            solve(level - 1, new PackageStateOriginal(state.toString() + "c")); 
         }
     }
     
@@ -38,7 +38,7 @@ public class PackageSolverOriginal
     {
         // procura a melhor sequência com exatos 6 caracteres
         long start = System.currentTimeMillis();
-        solve(6, new PackageState(""));
+        solve(6, new PackageStateOriginal(""));
         
         System.out.println();
         System.out.println("count: " + count);
